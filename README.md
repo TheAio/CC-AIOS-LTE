@@ -1,2 +1,2 @@
-# AIOSNG
-CC-AIOS23 or ComputerCraft Aios Os 2023 is a desktop enviorment for the computercraft mod
+# AIOSLTE
+CC-AIOSLTE or ComputerCraft Aios Os Long Term Evolution is a desktop enviorment for the computercraft mod
