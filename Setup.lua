@@ -1,6 +1,8 @@
 Version = 1
 function Reset()
     term.setCursorPos(1,1)
+    term.setBackgroundColor(colors.black)
+    term.clear()
     term.setBackgroundColor(colors.gray)
     term.setTextColor(colors.yellow)
     print("AIOS-LTE OOTB")
@@ -105,7 +107,7 @@ if #Languages > 0 then
                 shell.run("cd ..")
                 Reset()
                 print("####-")
-                local LangFiles = fs.list("localization/languages/")
+                local LangFiles = fs.list("./localization/languages")
                 local LangFile = fs.open(LangFiles[1])
                 LangFileLines = {}
                 while true do
