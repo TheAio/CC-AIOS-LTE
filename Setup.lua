@@ -19,7 +19,7 @@ while true do
     E,K = os.pullEvent("key")
     if K == keys.y then
         break
-    elseif K == keys.N then
+    elseif K == keys.n then
         printError("license was rejected")
         return false
     end
