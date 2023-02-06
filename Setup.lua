@@ -16,7 +16,7 @@ print("It can be found here:")
 print("https://raw.githubusercontent.com/TheAio/CC-AIOS-LTE/main/LICENSE")
 textutils.slowPrint("Press 'Y' if you agree to the license otherwise press 'N' if you do not agree")
 while true do
-    E,K == os.pullEvent("key")
+    E,K = os.pullEvent("key")
     if K == keys.y then
         break
     elseif K == keys.N then
