@@ -30,7 +30,7 @@ textutils.slowPrint("Thank you! A great system is just afew steps away...")
 print("Please wait...")
 shell.run("mkdir localization")
 shell.run("wget https://raw.githubusercontent.com/TheAio/CC-AIOS-LTE/main/Languagelist.txt")
-shell.run("mv LanguageList.txt localization/LanguageList.txt")
+shell.run("mv Languagelist.txt localization/LanguageList.txt")
 if fs.exists("localization/LanguageList.txt") then
     print("Almost ready...")
     LanguageListFile = fs.open("localization/LanguageList.txt","r")
