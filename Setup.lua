@@ -205,7 +205,7 @@ if #Languages > 0 then
                     shell.run("wget","https://raw.githubusercontent.com/TheAio/CC-ALLUDE/main/APMs")
                     Reset()
                     print("###-")
-                    shell.run("wget","https://raw.githubusercontent.com/TheAio/CC-ALLUDE/main/InstallEverything.APMs")
+                    shell.run("wget","https://raw.githubusercontent.com/TheAio/CC-AIOS-LTE/main/InstallEverything.APMs")
                     sleep(1)
                     Reset()
                     print("####")
