@@ -108,7 +108,7 @@ if #Languages > 0 then
                 Reset()
                 print("####-")
                 local LangFiles = fs.list("./localization/languages")
-                local LangFile = fs.open(LangFiles[1],"r")
+                local LangFile = fs.open("./localization/languages/"..LangFiles[1],"r")
                 LangFileLines = {}
                 while true do
                     sleep(0)
