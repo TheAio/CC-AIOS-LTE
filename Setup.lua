@@ -150,7 +150,52 @@ if #Languages > 0 then
                     sleep(1)
                     file2.close()
                 end
-                error("CODE NOT FINISHED!")
+                Reset()
+                print(FindTranslation(LangFileLines,"*please*"),FindTranslation(LangFileLines,"*enter*"),FindTranslation(LangFileLines,"*timezone*"),FindTranslation(LangFileLines,"*ammount*"),FindTranslation(LangFileLines,"*use*"),FindTranslation(LangFileLines,"*numbers*"),"[0-12]")
+                while true do
+                    Sel = tonumber(read())
+                    if Sel == nil then
+                        print(FindTranslation(LangFileLines,"*half*"),FindTranslation(LangFileLines,"*numbers*"),FindTranslation(LangFileLines,"*are*"),FindTranslation(LangFileLines,"*unsupported*"))
+                    else
+                        break
+                    end
+                end
+                print(FindTranslation(LangFileLines,"*wait*"))
+                local file3 = fs.open("localization/timezoneAmmount","w")
+                file3.writeLine(sel)
+                sleep(1)
+                file3.close()
+                Reset()
+                print(FindTranslation(LangFileLines,"*enter*"),FindTranslation(LangFileLines,"*a*"),FindTranslation(LangFileLines,"*username*"))
+                local file4 = fs.open("localization/username","w")
+                file4.writeLine(read())
+                Reset()
+                print(FindTranslation(LangFileLines,"*wait*"))
+                sleep(1)
+                file4.close()
+                Reset()
+                print(FindTranslation(LangFileLines,"*install*"),FindTranslation(LangFileLines,"*more*"),FindTranslation(LangFileLines,"*tools*"),"[Y/n]")
+                term.setBackgroundColor(colors.yellow)
+                print(FindTranslation(LangFileLines,"*warning*"),FindTranslation(LangFileLines,"*some*"),FindTranslation(LangFileLines,"*tools*"),FindTranslation(LangFileLines,"*are*"),FindTranslation(LangFileLines,"*legacy*"),FindTranslation(LangFileLines,"*tools*"))
+                if string.upper(read()) == "Y" then
+                    Reset()
+                    print("#---")
+                    shell.run("wget","https://raw.githubusercontent.com/TheAio/CC-ALLUDE/main/APM")
+                    Reset()
+                    print("##--")
+                    shell.run("wget","https://raw.githubusercontent.com/TheAio/CC-ALLUDE/main/APMs")
+                    Reset()
+                    print("###-")
+                    shell.run("wget","https://raw.githubusercontent.com/TheAio/CC-ALLUDE/main/InstallEverything.APMs")
+                    sleep(1)
+                    Reset()
+                    print("####")
+                    shell.run("APMs InstallEverything.APMs")
+                    sleep(1)
+                    shell.run("delete InstallEverything.APMs")
+                    Reset()
+                end
+                error("CODE NOT COMPLETED YET!")
             else
                 printError("A strange error ocurred or you are useing a unsupported version of AIOS-LTE")
                 printError("you can find the latest official release on https://github.com/TheAio/CC-AIOS-LTE")
