@@ -178,6 +178,25 @@ if #Languages > 0 then
                 term.setBackgroundColor(colors.yellow)
                 print(FindTranslation(LangFileLines,"*warning*"),FindTranslation(LangFileLines,"*some*"),FindTranslation(LangFileLines,"*tools*"),FindTranslation(LangFileLines,"*are*"),FindTranslation(LangFileLines,"*legacy*"),FindTranslation(LangFileLines,"*tools*"))
                 if string.upper(read()) == "Y" then
+                    if term.isColor() then
+                        Reset()
+                        print(FindTranslation(LangFileLines,"*wait*"))
+                        local file5 = fs.open("TEMPORARY-PRINT-FILE","w")
+                        file5.writeLine("print('"..FindTranslation(LangFileLines,"*installing*").."')")
+                        file5.writeLine("while true do")
+                        file5.writeLine("   print('>')
+                        file5.writeLine("   a = read()")
+                        file5.writeLine("   if a == 'exit' then")
+                        file5.writeLine("       break")
+                        file5.writeLine("   else")
+                        file5.writeLine("       shell.run(a)")
+                        file5.writeLine("   end")
+                        file5.writeLine("end")
+                        sleep(1)
+                        file5.close()
+                        Reset()
+                        shell.run("fg TEMPORARY-PRINT-FILE")
+                    end
                     Reset()
                     print("#---")
                     shell.run("wget","https://raw.githubusercontent.com/TheAio/CC-ALLUDE/main/APM")
@@ -194,7 +213,11 @@ if #Languages > 0 then
                     sleep(1)
                     shell.run("delete InstallEverything.APMs")
                     Reset()
+                    if term.isColor() then
+                        multishell.setFocus(1)
+                    end
                 end
+                Reset()
                 error("CODE NOT COMPLETED YET!")
             else
                 printError("A strange error ocurred or you are useing a unsupported version of AIOS-LTE")
