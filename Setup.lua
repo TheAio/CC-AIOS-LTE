@@ -128,10 +128,9 @@ if #Languages > 0 then
                    for Line = 1, #LangFileLines do
                         if LangFileLines[Line] == keyword then
                             return LangFileLines[Line+1]
-                        else
-                            return "ERROR"
                         end
                    end
+                   return "ERROR"
                 end
                 print(FindTranslation(LangFileLines,"*wellcome*"),FindTranslation(LangFileLines,"*to*"),"AIOS-LTE OOTB V"..Version)
                 print(FindTranslation(LangFileLines,"*please*"),FindTranslation(LangFileLines,"*select*"),FindTranslation(LangFileLines,"*a*"),FindTranslation(LangFileLines,"*timezone*"))
