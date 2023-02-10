@@ -218,7 +218,11 @@ if #Languages > 0 then
                     end
                 end
                 Reset()
-                error("CODE NOT COMPLETED YET!")
+                shell.run("wget https://raw.githubusercontent.com/TheAio/CC-AIOS-LTE/main/DesktopManager.lua startup")
+                shell.run("mkdir system")
+                shell.run("mkdir system/temp")
+                sleep(1)
+                os.reboot()
             else
                 printError("A strange error ocurred or you are useing a unsupported version of AIOS-LTE")
                 printError("you can find the latest official release on https://github.com/TheAio/CC-AIOS-LTE")
