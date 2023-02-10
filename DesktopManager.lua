@@ -1,3 +1,4 @@
+items = {}
 function FindFiles()
   local files = fs.list("./")
   local resultFiles = {}
@@ -105,5 +106,63 @@ function LaunchProgram(path) --This handles advanced text files
       end
       items[#items+1] = {colors.white,colors.black,c}
       temp.close()
+    end
+end
+function FindTranslation(keyword)
+    local a = fs.list("./localization/languages/")
+    local file = fs.open("./localization/languages/"..a[1])
+    local b = ""
+    LangFileLines = {}
+    while true do
+      local b = file.readLine()
+      if b == nil then
+        break
+      else
+        LangFileLines[#LangFileLines+1] = b
+      end
+    end
+    file.close()
+    for Line = 1, #LangFileLines do
+      if LangFileLines[Line] == keyword then
+        return LangFileLines[Line+1]
+      end
+    end
+    return "ERROR"
+end
+while true do
+    if fs.exists("./system/AUTORUN") then
+      LaunchScript("./system/AUTORUN")
+    end
+    local temp = fs.open("./system/temp/files","w")
+    local temp2 = fs.list("./")
+    for i = 1, #temp2 do
+      if fs.isDir(temp2[i]) then
+      else
+        temp.write("./"..temp2[i])
+      end
+    end
+    temp2.close()
+    LaunchProgram("./system/temp/files")
+    Draw(items)
+    if #items < 2 then
+      local temp,temp2 = term.getCursorPos()
+      print(">")
+      term.setCursorPos(temp+2,temp2)
+      local sel = read()
+      if fs.exists(sel) then
+        Launch(sel)
+      elseif sel == "exit" then
+        if term.isColor() then
+          printError(FindTranslation("*warning*"),FindTranslation("*there*"),FindTranslation("*exists*"),FindTranslation("*open*"),FindTranslation("*files*"))
+          printError(FindTranslation("*shutdown*").."? [Y/n]")
+          if string.upper(read()) == "Y" then
+            term.setBackgroundColor(colors.black)
+            term.clear()
+          end
+        else
+          term.setBackgroundColor(colors.black)
+          term.clear()
+        end
+      end
     end
 end
