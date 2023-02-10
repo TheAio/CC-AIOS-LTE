@@ -218,6 +218,8 @@ if #Languages > 0 then
                     end
                 end
                 Reset()
+                shell.run("rm TEMPORARY-PRINT-FILE")
+                shell.run("rm startup")
                 shell.run("wget https://raw.githubusercontent.com/TheAio/CC-AIOS-LTE/main/DesktopManager.lua startup")
                 shell.run("mkdir system")
                 shell.run("mkdir system/temp")
