@@ -184,7 +184,7 @@ if #Languages > 0 then
                         local file5 = fs.open("TEMPORARY-PRINT-FILE","w")
                         file5.writeLine("print('"..FindTranslation(LangFileLines,"*installing*").."')")
                         file5.writeLine("while true do")
-                        file5.writeLine("   print('>')
+                        file5.writeLine("   print('>')")
                         file5.writeLine("   a = read()")
                         file5.writeLine("   if a == 'exit' then")
                         file5.writeLine("       break")
