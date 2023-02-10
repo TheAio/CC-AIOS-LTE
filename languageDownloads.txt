@@ -2,3 +2,4 @@ wget https://raw.githubusercontent.com/TheAio/CC-AIOS-LTE/main/Lang-ENG Lang-ENG
 wget https://raw.githubusercontent.com/TheAio/CC-AIOS-LTE/main/Lang-SV Lang-SV
 wget https://raw.githubusercontent.com/TheAio/CC-AIOS-LTE/main/Lang-KLI Lang-KLI
 wget https://raw.githubusercontent.com/TheAio/CC-AIOS-LTE/main/Lang-GER Lang-GER
+wget https://raw.githubusercontent.com/TheAio/CC-AIOS-LTE/main/Lang-JAP Lang-JAP
