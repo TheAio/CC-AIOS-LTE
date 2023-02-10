@@ -2,3 +2,4 @@ English - English
 Swedish - Svenska
 Klingon - tlhIngan
 German  - Deutsch
+Japanese - 日本語
