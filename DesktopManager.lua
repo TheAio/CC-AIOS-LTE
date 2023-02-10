@@ -56,7 +56,7 @@ function LaunchScript(path) --This handles classic script
       os.pullEvent("keys")
     end
 end
-function LaunchProgram(path)
+function LaunchProgram(path) --This handles advanced text files
     if fs.isDir(path) then
       if fs.exists(path.."/AP") then
         local temp = fs.open(path.."/AP","r")
@@ -76,6 +76,34 @@ function LaunchProgram(path)
         end
         items[#items+1] = {a,b,c}
         temp.close()
+      else
+        local temp = fs.open(path.."/LAUNCH","r")
+        local c = {}
+        local d = ""
+        while true do
+          local d = temp.readLine()
+          if d == nil then
+            break
+          else
+            c[#c+1] = d
+          end
+        end
+        items[#items+1] = {colors.white,colors.black,c}
+        temp.close()
       end
+    else
+      local temp = fs.open(path,"r")
+      local c = {}
+      local d = ""
+      while true do
+        local d = temp.readLine()
+        if d == nil then
+          break
+        else
+          c[#c+1] = d
+        end
+      end
+      items[#items+1] = {colors.white,colors.black,c}
+      temp.close()
     end
 end
