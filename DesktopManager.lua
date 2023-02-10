@@ -158,10 +158,12 @@ while true do
           if string.upper(read()) == "Y" then
             term.setBackgroundColor(colors.black)
             term.clear()
+            shell.run("shutdown")
           end
         else
           term.setBackgroundColor(colors.black)
           term.clear()
+          shell.run("shutdown")
         end
       end
     end
