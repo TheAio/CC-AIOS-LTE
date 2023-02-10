@@ -1,3 +1,4 @@
+shell.run("usr/bin/easy-shell execute")
 items = {}
 function FindFiles()
   local files = fs.list("./")
