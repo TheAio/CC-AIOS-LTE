@@ -20,6 +20,7 @@ function FindFiles()
   end
   return {resultFiles,resultIcons}
 end
+end
 function Draw(items) --Draws items to the screen in order
     for item = 1, #items do
       for i = 1, #items[item] do
@@ -30,7 +31,7 @@ function Draw(items) --Draws items to the screen in order
         elseif i == 2 then
           term.setBackgroundColor(items[item][i])
         else
-          term.setColor(items[item][i])
+          term.setTextColor(items[item][i])
         end
       end
     end
@@ -50,7 +51,7 @@ function LaunchScript(path) --This handles classic script
       shell.run("fg",path)
     else
       term.setBackgroundColor(colors.black)
-      term.setColor(colors.white)
+      term.setTextColor(colors.white)
       print("Exit the program to return to desktop")
       shell.run(path)
       print("Program finished execution, press any key to return to desktop")
@@ -110,7 +111,7 @@ function LaunchProgram(path) --This handles advanced text files
 end
 function FindTranslation(keyword)
     local a = fs.list("./localization/languages/")
-    local file = fs.open("./localization/languages/"..a[1])
+    local file = fs.open("./localization/languages/"..a[1],"r")
     local b = ""
     LangFileLines = {}
     while true do
@@ -134,14 +135,14 @@ while true do
       LaunchScript("./system/AUTORUN")
     end
     local temp = fs.open("./system/temp/files","w")
-    local temp2 = fs.list("./")
+    temp2 = fs.list("./")
     for i = 1, #temp2 do
       if fs.isDir(temp2[i]) then
       else
         temp.write("./"..temp2[i])
       end
     end
-    temp2.close()
+    temp.close()
     LaunchProgram("./system/temp/files")
     Draw(items)
     if #items < 2 then
@@ -150,7 +151,7 @@ while true do
       term.setCursorPos(temp+2,temp2)
       local sel = read()
       if fs.exists(sel) then
-        Launch(sel)
+        LaunchScript(sel)
       elseif sel == "exit" then
         if term.isColor() then
           printError(FindTranslation("*warning*"),FindTranslation("*there*"),FindTranslation("*exists*"),FindTranslation("*open*"),FindTranslation("*files*"))
@@ -158,13 +159,15 @@ while true do
           if string.upper(read()) == "Y" then
             term.setBackgroundColor(colors.black)
             term.clear()
-            shell.run("shutdown")
+            os.shutdown()
           end
         else
           term.setBackgroundColor(colors.black)
           term.clear()
-          shell.run("shutdown")
+          os.shutdown()
         end
+      else
+        shell.run(sel)
       end
     end
 end
